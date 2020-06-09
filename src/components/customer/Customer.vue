@@ -84,7 +84,7 @@
           }
         },
     methods:{
-      deleteit:function(){
+      deleteit:function(id){
         var obj = this;
         if(confirm("你确定删除吗")){
 

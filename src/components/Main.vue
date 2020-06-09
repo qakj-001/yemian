@@ -36,7 +36,7 @@
      <!--左边的内容-->
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="width: 300px; float: left;">
       <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne"  style="background-color: #42B983;">
+        <div class="panel-heading" role="tab" id="headingOne" >
           <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
              客户管理
@@ -53,7 +53,7 @@
       </div>
 
       <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne" style="background-color: #ff5500;">
+        <div class="panel-heading" role="tab" id="headingOne" >
           <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
              供应商管理
@@ -62,7 +62,7 @@
         </div>
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body" style="padding: 0;">
-            <button class="btn btn-default" style="width: 100%;">供应商信息</button>
+            <button class="btn btn-default" style="width: 100%;" @click="toSupplier">供应商信息</button>
             <button class="btn btn-default" style="width: 100%;">检索中心</button>
             <button class="btn btn-default" style="width: 100%;">渠道管理</button>
             <button class="btn btn-default" style="width: 100%;">来电管理</button>
@@ -71,7 +71,7 @@
       </div>
 
       <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne" style="background-color: #ffff00;">
+        <div class="panel-heading" role="tab" id="headingOne" >
           <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
             商品管理
@@ -89,7 +89,7 @@
 
 
       <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne" style="background-color: #ff557f;">
+        <div class="panel-heading" role="tab" id="headingOne">
           <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
             工作管理
@@ -101,13 +101,13 @@
             <button class="btn btn-default" style="width: 100%;">日程管理</button>
             <button class="btn btn-default" style="width: 100%;">通讯录</button>
             <button class="btn btn-default" style="width: 100%;">通讯管理</button>
-            <button class="btn btn-default" style="width: 100%;">公告栏</button>
+            <button class="btn btn-default" @click="toboard" style="width: 100%;">公告栏</button>
           </div>
         </div>
       </div>
 
       <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne" style="background-color: #55ffff;">
+        <div class="panel-heading" role="tab" id="headingOne" >
           <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseOne">
            用户管理
@@ -116,7 +116,7 @@
         </div>
         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body" style="padding: 0;">
-            <button class="btn btn-default" style="width: 100%;">用户信息</button>
+            <button class="btn btn-default" @click="touser()" style="width: 100%;">用户信息</button>
           </div>
         </div>
       </div>
@@ -190,7 +190,26 @@
       },
       toUpdatePwd:function(){
         this.$router.push("/main/updatePwd");
+      },
+	  toSupplier:function(){
+		  this.$router.push("/main/supplier");
+	  },
+    toboard:function(){
+      this.$router.push("/main/board");
+    },
+    touser:function(){
+      if(this.user.role==0){
+        this.$router.push("/main/user");
+      }else{
+        alert("权限不满足");
       }
+    }
+    
+    
+    
+    
+    
+    
     }
   }
 </script>
